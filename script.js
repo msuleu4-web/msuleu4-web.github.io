@@ -1,0 +1,4 @@
+const canvas=document.getElementById("stars");const ctx=canvas.getContext("2d");let stars=[];
+function resize(){const dpr=window.devicePixelRatio||1;canvas.width=innerWidth*dpr;canvas.height=innerHeight*dpr;canvas.style.width=innerWidth+"px";canvas.style.height=innerHeight+"px";ctx.setTransform(dpr,0,0,dpr,0,0);stars=Array.from({length:Math.min(140,Math.floor(innerWidth/8))},()=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,s:Math.random()>.84?2:1,v:.04+Math.random()*.12,a:.25+Math.random()*.7}));}
+function draw(){ctx.clearRect(0,0,innerWidth,innerHeight);stars.forEach(star=>{star.y+=star.v;if(star.y>innerHeight){star.y=0;star.x=Math.random()*innerWidth}ctx.fillStyle=`rgba(255,255,255,${star.a})`;ctx.fillRect(Math.round(star.x),Math.round(star.y),star.s,star.s)});requestAnimationFrame(draw)}
+addEventListener("resize",resize);resize();draw();

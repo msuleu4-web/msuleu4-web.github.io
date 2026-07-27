@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="KIM YONGJIN Portfolio">
+  <title>KIM YONGJIN | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="stars"></canvas>
+
+  <header class="hero" id="top">
+    <div class="window hero-window">
+      <p class="label">WELCOME TO MY PORTFOLIO</p>
+      <h1><span>KIM</span> YONGJIN</h1>
+      <p class="hero-copy">IT SPECIALIST / WEB CREATOR</p>
+
+      <div class="level">
+        <span>LEVEL 2</span>
+        <div class="level-bar"><i></i></div>
+        <span>CAREER</span>
+      </div>
+
+      <nav class="command">
+        <p>▼ COMMAND</p>
+        <a href="#about">▶ ABOUT</a>
+        <a href="#experience">▶ EXPERIENCE</a>
+        <a href="#projects">▶ PROJECTS</a>
+        <a href="#skills">▶ SKILLS</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="about">
+      <div class="section-title">
+        <span>01</span>
+        <div><small>ABOUT</small><h2>プロフィール</h2></div>
+      </div>
+
+      <div class="window about-card">
+        <div class="portrait">
+          <div class="pixel-face">
+            <span class="hair"></span>
+            <span class="eye left"></span>
+            <span class="eye right"></span>
+            <span class="body"></span>
+          </div>
+        </div>
+        <div>
+          <p class="job">IT SPECIALIST</p>
+          <h3>キム・ヨンジン</h3>
+          <p>
+            日本IBMグループで、クレジットカード会社向けWebシステムの
+            保守・運用、障害調査、ログ分析、テスト、データ更新、簡易改修を担当しています。
+          </p>
+          <p>
+            日本語・韓国語のコミュニケーション力と、技術・ユーザー双方の視点を活かし、
+            分かりやすく使いやすい仕組みを作ることを大切にしています。
+          </p>
+          <div class="quick-stats">
+            <span>📍 Saitama, Japan</span>
+            <span>🗣 日本語 / 한국어</span>
+            <span>💻 Java / Next.js / AWS</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="section-title">
+        <span>02</span>
+        <div><small>EXPERIENCE</small><h2>ぼうけんの記録</h2></div>
+      </div>
+
+      <div class="window timeline">
+        <article>
+          <time>2025.04 — NOW</time>
+          <div>
+            <h3>日本IBMグループ｜IT Specialist</h3>
+            <p>Java・JSP・SQL・Linuxを利用したWebシステムの保守運用、障害調査、テスト、顧客報告。</p>
+          </div>
+        </article>
+        <article>
+          <time>2025.03</time>
+          <div>
+            <h3>立命館大学 政策科学部 卒業</h3>
+            <p>スマート農業と地域活性化をテーマに、日本・韓国・米国の事例を比較研究。</p>
+          </div>
+        </article>
+        <article>
+          <time>PROJECT</time>
+          <div>
+            <h3>個人開発・社内教育コンテンツ</h3>
+            <p>サッカー情報サービス「Goal Labo」と、SIer業務を学ぶゲーム「SIer道場」を開発。</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="section-title">
+        <span>03</span>
+        <div><small>PROJECTS</small><h2>つくったもの</h2></div>
+      </div>
+
+      <div class="projects">
+        <article class="window project">
+          <p class="quest">QUEST 01</p>
+          <h3>Goal Labo</h3>
+          <p>サッカーニュース、順位表、AIチャット、試合シミュレーター、掲示板、育成ゲームを統合したWebサービス。</p>
+          <ul>
+            <li>Next.js 14</li><li>TypeScript</li><li>Supabase</li><li>Groq API</li><li>AWS EC2</li>
+          </ul>
+          <a class="button" href="https://github.com/msuleu4-web/soccer-project" target="_blank" rel="noopener">GitHubで見る</a>
+        </article>
+
+        <article class="window project">
+          <p class="quest">QUEST 02</p>
+          <h3>SIer道場</h3>
+          <p>新入社員がSIerプロジェクトの進め方をゲーム形式で学べる教育アプリ。</p>
+          <ul>
+            <li>Next.js</li><li>TypeScript</li><li>Phaser 3</li><li>Supabase</li><li>AI API</li>
+          </ul>
+          <span class="button disabled">COMING SOON</span>
+        </article>
+
+        <article class="window project">
+          <p class="quest">QUEST 03</p>
+          <h3>Stock Analysis Lab</h3>
+          <p>テクニカル指標とバックテストを使い、米国株の売買戦略を検証する分析プロジェクト。</p>
+          <ul>
+            <li>Python</li><li>Pandas</li><li>Backtest</li><li>Data Analysis</li>
+          </ul>
+          <span class="button disabled">PRIVATE PROJECT</span>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="section-title">
+        <span>04</span>
+        <div><small>SKILLS</small><h2>ステータス</h2></div>
+      </div>
+
+      <div class="skill-grid">
+        <div class="window skills">
+          <h3>TECH SKILLS</h3>
+          <div class="skill"><div><b>Java / JSP</b><span>70</span></div><progress value="70" max="100"></progress></div>
+          <div class="skill"><div><b>Next.js / TypeScript</b><span>78</span></div><progress value="78" max="100"></progress></div>
+          <div class="skill"><div><b>AWS / Linux</b><span>74</span></div><progress value="74" max="100"></progress></div>
+          <div class="skill"><div><b>SQL / DB2</b><span>68</span></div><progress value="68" max="100"></progress></div>
+          <div class="skill"><div><b>Japanese / Korean</b><span>95</span></div><progress value="95" max="100"></progress></div>
+        </div>
+
+        <div class="window licenses">
+          <h3>LICENSE & EQUIPMENT</h3>
+          <ul>
+            <li>AWS Solutions Architect – Associate</li>
+            <li>AWS Cloud Practitioner</li>
+            <li>AWS AI Practitioner</li>
+            <li>JLPT N1</li>
+            <li>TOEFL 97</li>
+          </ul>
+          <a class="button" href="https://github.com/msuleu4-web" target="_blank" rel="noopener">GitHub Profile</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <a class="top-button" href="#top">▲ TOP</a>
+
+  <footer>
+    <p>© 2026 KIM YONGJIN</p>
+    <p>Built for GitHub Pages</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
