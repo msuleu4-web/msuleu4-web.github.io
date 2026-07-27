@@ -40,3 +40,6 @@ body{overflow:hidden;background:#9fd4eb}
 @media(max-width:800px){
   body{overflow:auto}.desktop{min-height:100svh}.menubar button:not(.brand-menu){display:none}.hero-copy{left:6vw;right:6vw;top:10vh}.hero-copy h2{font-size:32px}.hero-copy>p:last-child{font-size:15px}.desktop-icons{right:4vw;top:43vh;grid-template-columns:repeat(3,92px);gap:15px}.icon{width:52px;height:52px}.desktop-icon b{font-size:6px}.dock{bottom:10px}.dock button{width:48px;height:48px}.landscape .character{left:15%}.about-layout,.contact-layout{grid-template-columns:1fr}.career-list article{grid-template-columns:1fr}.project-row{grid-template-columns:80px 1fr 28px}.project-cover{height:76px}.stat-grid>div{grid-template-columns:120px 35px 1fr}.window-body{padding:18px}
 }
+
+.real-photo{padding:0;overflow:hidden;background:#fff}
+.real-photo img{width:100%;height:100%;object-fit:cover;display:block}
