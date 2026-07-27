@@ -1,1 +1,112 @@
-(()=>{const boot=document.querySelector('#boot'),game=document.querySelector('#game'),world=document.querySelector('#world'),player=document.querySelector('#player'),modal=document.querySelector('#modal'),content=document.querySelector('#content'),label=document.querySelector('#label'),mission=document.querySelector('#mission');let x=52,y=56,active=true,near=null;const info={about:['HOME / ABOUT','about'],career:['CAREER CENTER','career'],projects:['PROJECT LAB','projects'],skills:['SKILL GYM','skills'],contact:['CONTACT CENTER','contact'],guide:['MAP GUIDE',null],npc:['NPC MESSAGE',null]};function open(k){const v=info[k];if(!v)return;label.textContent=v[0];if(v[1])content.innerHTML=document.querySelector('#'+v[1]).innerHTML;else content.innerHTML=k==='guide'?'<article><h2>HOW TO PLAY</h2><p>方向キーまたはWASDで移動。建物や人物に近づいてEnter / Spaceを押してください。下のメニューから直接開くこともできます。</p></article>':'<article><h2>WELCOME!</h2><p>この町には、経歴・プロジェクト・スキルが記録されています。まずHOMEから探索してみましょう。</p></article>';modal.classList.remove('hidden');active=false}function close(){modal.classList.add('hidden');active=true;world.focus()}function box(el){const w=world.getBoundingClientRect(),r=el.getBoundingClientRect();return{x:(r.left-w.left+r.width/2)/w.width*100,y:(r.top-w.top+r.height/2)/w.height*100}}function check(){let b=null,d=999;world.querySelectorAll('[data-open]').forEach(el=>{const p=box(el),n=Math.hypot(x-p.x,y-p.y);if(n<d){d=n;b=el}});if(b&&d<12){near=b.dataset.open;mission.textContent='Enter: '+near.toUpperCase()}else{near=null;mission.textContent='マップを探索しよう'}}function move(dx,dy){if(!active)return;x=Math.max(2,Math.min(96,x+dx));y=Math.max(3,Math.min(91,y+dy));player.style.left=x+'%';player.style.top=y+'%';check()}function key(k){k=k.toLowerCase();if(k==='arrowup'||k==='w')move(0,-2.2);else if(k==='arrowdown'||k==='s')move(0,2.2);else if(k==='arrowleft'||k==='a')move(-2.2,0);else if(k==='arrowright'||k==='d')move(2.2,0);else if(k==='enter'||k===' '){if(near)open(near)}else if(k==='escape')close()}document.querySelector('#start').onclick=()=>{boot.classList.add('hidden');game.classList.remove('hidden');world.focus()};document.addEventListener('keydown',e=>{if(['ArrowUp','ArrowDown','ArrowLeft','ArrowRight',' ','Enter'].includes(e.key))e.preventDefault();key(e.key)});document.querySelectorAll('[data-open]').forEach(el=>el.addEventListener('click',()=>open(el.dataset.open)));document.querySelectorAll('[data-key]').forEach(el=>el.addEventListener('pointerdown',e=>{e.preventDefault();key(el.dataset.key)}));document.querySelector('#close').onclick=close;modal.addEventListener('click',e=>{if(e.target===modal)close()});check()})();
+(() => {
+  const startScreen = document.getElementById('startScreen');
+  const app = document.getElementById('app');
+  const startBtn = document.getElementById('startBtn');
+  const map = document.getElementById('map');
+  const player = document.getElementById('player');
+  const mission = document.getElementById('mission');
+  const modal = document.getElementById('modal');
+  const dialogTitle = document.getElementById('dialogTitle');
+  const dialogBody = document.getElementById('dialogBody');
+  const closeBtn = document.getElementById('closeBtn');
+
+  const state = { x:52, y:56, step:2.2, active:true, nearby:null };
+
+  const sections = {
+    about:{title:'HOME / ABOUT',tpl:'tpl-about'},
+    career:{title:'CAREER CENTER',tpl:'tpl-career'},
+    projects:{title:'PROJECT LAB',tpl:'tpl-projects'},
+    skills:{title:'SKILL GYM',tpl:'tpl-skills'},
+    contact:{title:'CONTACT CENTER',tpl:'tpl-contact'},
+    guide:{title:'MAP GUIDE',html:'<article><h2>HOW TO PLAY</h2><p>方向キーまたはWASDで移動します。建物・看板・人物に近づき、EnterかSpaceを押してください。</p><p>下のクイックメニューから直接開くこともできます。</p></article>'},
+    npc:{title:'NPC MESSAGE',html:'<article><h2>WELCOME!</h2><p>この町には、経歴・プロジェクト・スキルが記録されています。</p><p>まずは左上のHOMEから探索してみましょう。</p></article>'}
+  };
+
+  function start(){
+    startScreen.classList.add('hidden');
+    app.classList.remove('hidden');
+    requestAnimationFrame(()=>map.focus());
+  }
+
+  function openSection(key){
+    const s=sections[key]; if(!s)return;
+    dialogTitle.textContent=s.title;
+    dialogBody.innerHTML='';
+    if(s.tpl){
+      dialogBody.appendChild(document.getElementById(s.tpl).content.cloneNode(true));
+    }else{
+      dialogBody.innerHTML=s.html;
+    }
+    modal.classList.remove('hidden');
+    state.active=false;
+  }
+
+  function close(){
+    modal.classList.add('hidden');
+    state.active=true;
+    map.focus();
+  }
+
+  function move(dx,dy,dir){
+    if(!state.active)return;
+    state.x=Math.max(2,Math.min(96,state.x+dx));
+    state.y=Math.max(3,Math.min(91,state.y+dy));
+    player.style.left=state.x+'%';
+    player.style.top=state.y+'%';
+    player.className='player '+dir+' walk';
+    clearTimeout(move.timer);
+    move.timer=setTimeout(()=>player.classList.remove('walk'),130);
+    checkNearby();
+  }
+
+  function centerPercent(el){
+    const mr=map.getBoundingClientRect(),r=el.getBoundingClientRect();
+    return {x:((r.left-mr.left+r.width/2)/mr.width)*100,y:((r.top-mr.top+r.height/2)/mr.height)*100};
+  }
+
+  function checkNearby(){
+    const targets=[...map.querySelectorAll('[data-section]')];
+    let best=null,bestD=Infinity;
+    targets.forEach(el=>{
+      const p=centerPercent(el);
+      const d=Math.hypot(state.x-p.x,state.y-p.y);
+      if(d<bestD){bestD=d;best=el;}
+    });
+    if(best&&bestD<12){
+      state.nearby=best.dataset.section;
+      mission.textContent='Enter: '+best.dataset.section.toUpperCase();
+    }else{
+      state.nearby=null;
+      mission.textContent='町を探索しよう';
+    }
+  }
+
+  function key(k){
+    const v=k.toLowerCase();
+    if(v==='arrowup'||v==='w')move(0,-state.step,'up');
+    else if(v==='arrowdown'||v==='s')move(0,state.step,'down');
+    else if(v==='arrowleft'||v==='a')move(-state.step,0,'left');
+    else if(v==='arrowright'||v==='d')move(state.step,0,'right');
+    else if(v==='enter'||v===' ') { if(state.nearby)openSection(state.nearby); }
+    else if(v==='escape')close();
+  }
+
+  document.addEventListener('keydown',e=>{
+    if(['ArrowUp','ArrowDown','ArrowLeft','ArrowRight',' ','Enter'].includes(e.key))e.preventDefault();
+    key(e.key);
+  });
+
+  document.querySelectorAll('[data-section]').forEach(el=>{
+    el.addEventListener('click',()=>openSection(el.dataset.section));
+  });
+
+  document.querySelectorAll('.mobile-pad button').forEach(btn=>{
+    btn.addEventListener('pointerdown',e=>{e.preventDefault();key(btn.dataset.key);});
+  });
+
+  startBtn.addEventListener('click',start);
+  closeBtn.addEventListener('click',close);
+  modal.addEventListener('click',e=>{if(e.target===modal)close();});
+  document.getElementById('helpBtn').addEventListener('click',()=>openSection('guide'));
+  checkNearby();
+})();
