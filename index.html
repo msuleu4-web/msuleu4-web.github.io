@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#7fb66d" />
+  <meta name="description" content="Kim Yongjin pixel desktop portfolio" />
+  <title>YONGJIN OS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div id="boot" class="boot">
+    <div class="boot-card">
+      <div class="boot-orb"><span></span></div>
+      <div class="boot-kicker">WELCOME TO</div>
+      <h1>YONGJIN OS</h1>
+      <p>an interactive pixel portfolio</p>
+      <button id="enterBtn" class="px-btn primary">CLICK TO START</button>
+      <small>Best experienced on desktop · mobile supported</small>
+    </div>
+  </div>
+
+  <main id="desktop" class="desktop hidden">
+    <div class="sky-decor cloud c1"></div>
+    <div class="sky-decor cloud c2"></div>
+    <div class="sky-decor star s1">✦</div>
+    <div class="sky-decor star s2">✦</div>
+
+    <header class="menubar">
+      <div class="menu-left">
+        <button class="brand-menu" data-open="about">YJ</button>
+        <span>YONGJIN OS</span>
+        <button data-open="about">About</button>
+        <button data-open="career">Career</button>
+        <button data-open="projects">Projects</button>
+      </div>
+      <div class="menu-right">
+        <span id="clock">--:--</span>
+        <button id="soundBtn" aria-label="toggle sound">♪</button>
+      </div>
+    </header>
+
+    <section class="hero-copy">
+      <p class="hero-tag">HELLO, WORLD!</p>
+      <h2>I build things<br>between <em>people</em><br>and <em>technology.</em></h2>
+      <p>IT Specialist · Web Builder · Multilingual Communicator</p>
+    </section>
+
+    <section class="desktop-icons" aria-label="desktop shortcuts">
+      <button class="desktop-icon" data-open="about">
+        <span class="icon pixel-face"><i></i></span>
+        <b>ABOUT ME</b>
+      </button>
+      <button class="desktop-icon" data-open="career">
+        <span class="icon folder-icon"><i></i></span>
+        <b>CAREER</b>
+      </button>
+      <button class="desktop-icon" data-open="projects">
+        <span class="icon cart-icon"><i></i></span>
+        <b>PROJECTS</b>
+      </button>
+      <button class="desktop-icon" data-open="skills">
+        <span class="icon badge-icon">★</span>
+        <b>SKILLS</b>
+      </button>
+      <button class="desktop-icon" data-open="contact">
+        <span class="icon mail-icon"><i></i></span>
+        <b>CONTACT</b>
+      </button>
+      <a class="desktop-icon" href="https://github.com/msuleu4-web" target="_blank" rel="noreferrer">
+        <span class="icon github-icon">GH</span>
+        <b>GITHUB</b>
+      </a>
+    </section>
+
+    <div class="landscape">
+      <div class="mountain m1"></div>
+      <div class="mountain m2"></div>
+      <div class="hill h1"></div>
+      <div class="hill h2"></div>
+      <div class="ground"></div>
+      <div class="flower f1"></div><div class="flower f2"></div><div class="flower f3"></div>
+      <div class="character" id="character">
+        <span class="hair"></span><span class="head"></span><span class="shirt"></span><span class="leg l"></span><span class="leg r"></span>
+      </div>
+    </div>
+
+    <nav class="dock">
+      <button data-open="about"><span class="dock-face"></span><small>About</small></button>
+      <button data-open="career"><span class="dock-folder"></span><small>Career</small></button>
+      <button data-open="projects"><span class="dock-game">▶</span><small>Projects</small></button>
+      <button data-open="skills"><span class="dock-star">★</span><small>Skills</small></button>
+      <button data-open="contact"><span class="dock-mail">✉</span><small>Contact</small></button>
+    </nav>
+  </main>
+
+  <section id="windowLayer" class="window-layer hidden" aria-live="polite">
+    <article id="appWindow" class="app-window">
+      <header class="window-bar">
+        <div class="traffic">
+          <button id="closeWindow" class="red" aria-label="close"></button>
+          <button class="yellow" aria-label="minimize"></button>
+          <button class="green" aria-label="maximize"></button>
+        </div>
+        <strong id="windowTitle">ABOUT ME</strong>
+        <div class="window-grip">•••</div>
+      </header>
+      <div id="windowBody" class="window-body"></div>
+    </article>
+  </section>
+
+  <template id="about">
+    <section class="content about-layout">
+      <div class="avatar-card">
+        <div class="big-avatar real-photo">
+          <img src="./profile.jpg" alt="Kim Yongjin profile photo">
+        </div>
+        <div>
+          <span class="label">PLAYER 01</span>
+          <h3>KIM YONGJIN</h3>
+          <p>キム・ヨンジン</p>
+        </div>
+      </div>
+      <div>
+        <p class="eyebrow">ABOUT ME</p>
+        <h2>困っている箇所を見つけて、動く形にして届ける。</h2>
+        <p class="lead">韓国出身、日本在住7年。立命館大学 政策科学部を卒業後、現在は日本アイ・ビー・エム デジタルサービスで金融系Webシステムの開発・保守を担当している。</p>
+        <p class="lead">大学図書館では留学生の利用率が低い原因を多言語アンケートで特定し、ガイドを作り直して利用率を30%以上改善した。個人開発でもWebサービスを企画から公開まで一人で手がけている。</p>
+        <dl class="profile-list">
+          <dt>BASE</dt><dd>埼玉県 / Japan</dd>
+          <dt>LANGUAGES</dt><dd>韓国語（ネイティブ）・日本語（JLPT N1）・英語</dd>
+          <dt>CERTS</dt><dd>AWS Certified AI Practitioner / AWS Certified Cloud Practitioner</dd>
+          <dt>EDUCATION</dt><dd>立命館大学 政策科学部 卒業（2020–2025）</dd>
+          <dt>STACK</dt><dd>Java / JSP / SQL / Linux / DB2 / Python / AWS</dd>
+          <dt>INTERESTS</dt><dd>Web開発、クラウド、データ分析、サッカー</dd>
+        </dl>
+      </div>
+    </section>
+  </template>
+
+  <template id="career">
+    <section class="content">
+      <p class="eyebrow">CAREER.LOG</p>
+      <h2>Experience</h2>
+      <div class="career-list">
+        <article>
+          <div class="career-date">2025 — NOW</div>
+          <div>
+            <h3>日本アイ・ビー・エム デジタルサービス株式会社</h3>
+            <p>2025年7月より金融系（信販）プロジェクトに参画。Javaによる既存Webページの改修・DBパッチ適用・テストケース作成を担当し、障害調査やログ分析、定期データ更新、関係者への報告も行っている。</p>
+            <div class="chips"><span>Java</span><span>JSP</span><span>SQL</span><span>Linux</span><span>DB2</span></div>
+          </div>
+        </article>
+        <article>
+          <div class="career-date">2024 — 2025</div>
+          <div>
+            <h3>コナミスポーツクラブ フロント業務（アルバイト）</h3>
+            <p>受付・会員対応に加え、施設見学に来た見込み客への入会提案を担当。見学者の目的（運動習慣づくり・ダイエット・リハビリ等）をヒアリングし、目的に合ったプランやレッスンを提示して入会につなげた。対面で相手のニーズを引き出し、その場で提案に落とし込む実務を積んだ。</p>
+            <div class="chips"><span>対面営業</span><span>ニーズヒアリング</span><span>顧客提案</span></div>
+          </div>
+        </article>
+        <article>
+          <div class="career-date">2023 — 2024</div>
+          <div>
+            <h3>KOTRA大阪貿易館 インターン</h3>
+            <p>日韓企業のビジネスマッチング支援と展示会での通訳を担当。常勤ではなく展示会ごとに3〜5日単位で従事した。</p>
+            <div class="chips"><span>日韓通訳</span><span>BtoB商談</span></div>
+          </div>
+        </article>
+        <article>
+          <div class="career-date">2022 — 2024</div>
+          <div>
+            <h3>立命館大学 図書館スタッフ</h3>
+            <p>留学生の図書館利用率が低いという課題を発見し、Rを用いた多言語アンケートで原因を特定。大阪国際交流財団のボランティアおよびデザイン専攻の留学生と協働して多言語ガイドを制作し、配布数を300部から500部に拡大。留学生の利用率を30%以上改善した。</p>
+            <div class="chips"><span>R</span><span>多言語対応</span><span>ユーザー調査</span></div>
+          </div>
+        </article>
+        <article>
+          <div class="career-date">2021 — 2022</div>
+          <div>
+            <h3>大阪国際交流センター インターン</h3>
+            <p>大阪府内の中学校・高校に出向き、韓国文化を紹介する出張授業を企画・実施。コロナ禍で対面訪問が制限された際は、他の担当者でも同内容を届けられるよう授業のテンプレート動画を制作した。また、市役所職員を対象とした外国人対応シミュレーションにも参加した。</p>
+            <div class="chips"><span>異文化理解教育</span><span>コンテンツ制作</span><span>多文化共生</span></div>
+          </div>
+        </article>
+        <article>
+          <div class="career-date">2017 — 2019</div>
+          <div>
+            <h3>華城市庁（兵役勤務・総務）</h3>
+            <p>許認可申請の受付・書類審査・来庁者対応を担当し、新人へのOJTも実施。外国人住民が手続きを理解できず窓口で滞留する問題に対し、案内資料とフローチャートを整備して対応を改善した。</p>
+            <div class="chips"><span>行政実務</span><span>業務改善</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </template>
+
+  <template id="projects">
+    <section class="content">
+      <p class="eyebrow">SELECT A PROJECT</p>
+      <h2>Things I Built</h2>
+      <div class="project-list">
+        <a href="https://www.goal-labo.com/" target="_blank" rel="noreferrer" class="project-row">
+          <div class="project-cover goal"><span>⚽</span></div>
+          <div><span class="label">WEB APP · NO.01</span><h3>GOAL LABO</h3><p>サッカー情報、AI会話、予測・シミュレーションを組み合わせたWebサービス。</p></div>
+          <b>↗</b>
+        </a>
+        <a href="https://sier-dojo.it.com/" target="_blank" rel="noreferrer" class="project-row">
+          <div class="project-cover dojo"><span>剣</span></div>
+          <div><span class="label">EDTECH · NO.02</span><h3>SIer道場</h3><p>SIer業務をゲーム形式で学べる教育コンテンツ。</p></div>
+          <b>↗</b>
+        </a>
+        <article class="project-row">
+          <div class="project-cover stock"><span>↗</span></div>
+          <div><span class="label">RESEARCH · CLOSED</span><h3>STOCK ANALYSIS LAB</h3><p>AIを用いた株式自動売買プログラムを構想したが、個人で入手できる金融データの粒度と精度が売買判断に足る品質を確保できないと判断した。実装着手前の段階で見送りを決定している。</p></div>
+          <b>CLOSED</b>
+        </article>
+      </div>
+    </section>
+  </template>
+
+  <template id="skills">
+    <section class="content">
+      <p class="eyebrow">PLAYER STATS</p>
+      <h2>Skills & Badges</h2>
+      <div class="stat-grid">
+        <div><span>WEB / APP</span><b>76</b><i><u style="width:76%"></u></i></div>
+        <div><span>CLOUD / AWS</span><b>70</b><i><u style="width:70%"></u></i></div>
+        <div><span>ANALYSIS</span><b>82</b><i><u style="width:82%"></u></i></div>
+        <div><span>COMMUNICATION</span><b>90</b><i><u style="width:90%"></u></i></div>
+      </div>
+      <div class="badge-wall">
+        <span>AWS Cloud Practitioner</span>
+        <span>AWS AI Practitioner</span>
+        <span>JLPT N1</span>
+        <span>TOEFL iBT 97</span>
+      </div>
+    </section>
+  </template>
+
+  <template id="contact">
+    <section class="content contact-layout">
+      <div>
+        <p class="eyebrow">NEW MESSAGE</p>
+        <h2>Let's connect.</h2>
+        <p class="lead">ポートフォリオをご覧いただき、ありがとうございます。</p>
+      </div>
+      <div class="contact-card">
+        <a href="https://github.com/msuleu4-web" target="_blank" rel="noreferrer">OPEN GITHUB ↗</a>
+        <a href="mailto:ehj8464@naver.com">SEND EMAIL ↗</a>
+        <small>index.html内の ehj8464@naver.com を変更してください。</small>
+      </div>
+    </section>
+  </template>
+
+  <script src="./script.js"></script>
+</body>
+</html>
